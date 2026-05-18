@@ -18,17 +18,17 @@
 
     <style>
         :root {
-            --bg-deepest: #08090D;
-            --bg-section: #0E1117;
-            --bg-surface: #161B22;
+            --bg-deepest: #060d18;
+            --bg-section: #0a1628;
+            --bg-surface: #0f1d32;
             --border: rgba(255, 255, 255, 0.06);
-            --border-accent: rgba(212, 168, 83, 0.25);
-            --amber: #D4A853;
-            --amber-hover: #E4BE73;
-            --amber-soft: rgba(212, 168, 83, 0.08);
-            --amber-border: rgba(212, 168, 83, 0.12);
-            --text-primary: #EAEDF2;
-            --text-heading: #F4F6F9;
+            --border-accent: rgba(74, 142, 255, 0.25);
+            --amber: #4a8eff;
+            --amber-hover: #6ba3ff;
+            --amber-soft: rgba(74, 142, 255, 0.08);
+            --amber-border: rgba(74, 142, 255, 0.12);
+            --text-primary: #c8cfd8;
+            --text-heading: #f0f2f5;
             --text-muted: #8B919A;
             --green: #4AC882;
             --green-soft: rgba(74, 200, 130, 0.1);
@@ -57,12 +57,12 @@
 
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-deepest); }
-        ::-webkit-scrollbar-thumb { background: #2A2F38; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb { background: #1c3054; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--amber); }
 
         .section-divider {
             height: 1px; border: none; margin: 0;
-            background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(74, 142, 255, 0.25), transparent);
         }
 
         /* ===================== NAVIGATION ===================== */
@@ -73,7 +73,7 @@
             background: transparent;
         }
         .nav.scrolled {
-            background: rgba(8, 9, 13, 0.9); backdrop-filter: blur(24px);
+            background: rgba(6, 13, 24, 0.9); backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid var(--amber-border); padding: 0.7rem 2.5rem;
         }
@@ -111,7 +111,7 @@
         }
         .btn-demo:hover {
             background: var(--amber-hover); transform: translateY(-1px);
-            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25);
+            box-shadow: 0 8px 30px rgba(74, 142, 255, 0.25);
         }
         .btn-demo svg { width: 14px; height: 14px; transition: transform 0.3s; }
         .btn-demo:hover svg { transform: translateX(3px); }
@@ -161,7 +161,7 @@
         }
         .btn-primary:hover {
             background: var(--amber-hover); transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(212, 168, 83, 0.3);
+            box-shadow: 0 12px 40px rgba(74, 142, 255, 0.3);
         }
         .btn-primary svg { width: 16px; height: 16px; transition: transform 0.3s; }
         .btn-primary:hover svg { transform: translateX(3px); }
@@ -224,11 +224,11 @@
         }
         .about-logo-wrap::before {
             content: ''; position: absolute; inset: -18px; border-radius: 50%;
-            border: 1px solid rgba(212, 168, 83, 0.06);
+            border: 1px solid rgba(74, 142, 255, 0.06);
         }
         .about-logo-wrap::after {
             content: ''; position: absolute; inset: -36px; border-radius: 50%;
-            border: 1px dashed rgba(212, 168, 83, 0.04);
+            border: 1px dashed rgba(74, 142, 255, 0.04);
         }
         .about-logo-wrap img { height: 220px; width: auto; opacity: 0.9; }
         .about-features { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
@@ -248,7 +248,7 @@
         .services-header .section-desc { margin: 0 auto; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
         .service-card {
-            background: linear-gradient(145deg, rgba(22, 27, 34, 0.8), rgba(14, 17, 23, 0.6));
+            background: linear-gradient(145deg, rgba(15, 29, 50, 0.8), rgba(14, 17, 23, 0.6));
             border: 1px solid var(--border); border-radius: 16px;
             padding: 2rem; transition: all 0.4s var(--ease-out);
             position: relative; overflow: hidden; cursor: pointer;
@@ -285,7 +285,7 @@
         .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
         .how-steps::before {
             content: ''; position: absolute; top: 40px; left: 16%; right: 16%; height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.2), rgba(212, 168, 83, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(74, 142, 255, 0.2), rgba(74, 142, 255, 0.2), transparent);
         }
         .how-step { text-align: center; position: relative; }
         .step-num {
@@ -314,7 +314,7 @@
         .courses-icon-wrap svg { width: 64px; height: 64px; stroke: var(--amber); fill: none; stroke-width: 1.2; }
         .courses-icon-wrap::before {
             content: ''; position: absolute; inset: -12px; border-radius: 30px;
-            border: 1px solid rgba(212, 168, 83, 0.06);
+            border: 1px solid rgba(74, 142, 255, 0.06);
         }
         .courses-points { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 2rem; }
         .courses-point { display: flex; gap: 1rem; align-items: flex-start; }
@@ -344,7 +344,7 @@
         #kontakt { background: var(--bg-section); position: relative; overflow: hidden; }
         .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
         .contact-form-wrap {
-            background: linear-gradient(145deg, rgba(22, 27, 34, 0.5), rgba(8, 9, 13, 0.8));
+            background: linear-gradient(145deg, rgba(15, 29, 50, 0.5), rgba(6, 13, 24, 0.8));
             border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem;
         }
         .form-group { margin-bottom: 1.2rem; }
@@ -360,8 +360,8 @@
         }
         .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(234, 237, 242, 0.25); }
         .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--amber); background: rgba(212, 168, 83, 0.04);
-            box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.08);
+            border-color: var(--amber); background: rgba(74, 142, 255, 0.04);
+            box-shadow: 0 0 0 3px rgba(74, 142, 255, 0.08);
         }
         .form-group textarea { resize: vertical; min-height: 90px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -374,7 +374,7 @@
         }
         .btn-submit:hover {
             background: var(--amber-hover); transform: translateY(-1px);
-            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25);
+            box-shadow: 0 8px 30px rgba(74, 142, 255, 0.25);
         }
         .btn-submit svg { width: 16px; height: 16px; transition: transform 0.3s; }
         .btn-submit:hover svg { transform: translateX(3px); }
@@ -449,7 +449,7 @@
             .contact-form-wrap { padding: 1.5rem; }
         }
         .mobile-nav {
-            position: fixed; inset: 0; background: rgba(8, 9, 13, 0.97);
+            position: fixed; inset: 0; background: rgba(6, 13, 24, 0.97);
             backdrop-filter: blur(20px); z-index: 999;
             display: flex; flex-direction: column; align-items: center;
             justify-content: center; gap: 2rem;
@@ -608,8 +608,8 @@
             <div class="service-card reveal">
                 <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
                 <h3 data-dk="AI Kurser &amp; Workshops" data-en="AI Courses &amp; Workshops">AI Kurser &amp; Workshops</h3>
-                <p data-dk="Fysiske kurser for dig og dit team. L&aelig;r at bruge AI-v&aelig;rkt&oslash;jer i praksis &mdash; ingen foruds&aelig;tninger, bare nysgerrighed." data-en="In-person courses for you and your team. Learn to use AI tools in practice &mdash; no prerequisites, just curiosity.">Fysiske kurser for dig og dit team. L&aelig;r at bruge AI-v&aelig;rkt&oslash;jer i praksis &mdash; ingen foruds&aelig;tninger, bare nysgerrighed.</p>
-                <div class="service-tags"><span class="service-tag" data-dk="Begyndervenlig" data-en="Beginner-friendly">Begyndervenlig</span><span class="service-tag" data-dk="Fysisk kursus" data-en="In-person">Fysisk kursus</span><span class="service-tag">Hands-on</span></div>
+                <p data-dk="Online kurser for dig og dit team. L&aelig;r at bruge AI-v&aelig;rkt&oslash;jer i praksis &mdash; ingen foruds&aelig;tninger, bare nysgerrighed." data-en="Online courses for you and your team. Learn to use AI tools in practice &mdash; no prerequisites, just curiosity.">Online kurser for dig og dit team. L&aelig;r at bruge AI-v&aelig;rkt&oslash;jer i praksis &mdash; ingen foruds&aelig;tninger, bare nysgerrighed.</p>
+                <div class="service-tags"><span class="service-tag" data-dk="Begyndervenlig" data-en="Beginner-friendly">Begyndervenlig</span><span class="service-tag" data-dk="Online kursus" data-en="Online">Online kursus</span><span class="service-tag">Hands-on</span></div>
             </div>
             <div class="service-card reveal">
                 <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
@@ -661,7 +661,7 @@
             <div class="reveal">
                 <div class="section-label" data-dk="AI Kurser" data-en="AI Courses">AI Kurser</div>
                 <h2 class="section-title" data-dk='L&aelig;r AI &mdash; <em>uden foruds&aelig;tninger</em>' data-en='Learn AI &mdash; <em>no prerequisites</em>'>L&aelig;r AI &mdash; <em>uden foruds&aelig;tninger</em></h2>
-                <p class="section-desc" data-dk="Vi afholder fysiske workshops og kurser for virksomheder og enkeltpersoner der vil forst&aring; og bruge AI i praksis. Du beh&oslash;ver ikke v&aelig;re teknisk &mdash; bare nysgerrig." data-en="We run in-person workshops and courses for businesses and individuals who want to understand and use AI in practice. You don&rsquo;t need to be technical &mdash; just curious.">Vi afholder fysiske workshops og kurser for virksomheder og enkeltpersoner der vil forst&aring; og bruge AI i praksis. Du beh&oslash;ver ikke v&aelig;re teknisk &mdash; bare nysgerrig.</p>
+                <p class="section-desc" data-dk="Vi afholder online workshops og kurser for virksomheder og enkeltpersoner der vil forst&aring; og bruge AI i praksis. Du beh&oslash;ver ikke v&aelig;re teknisk &mdash; bare nysgerrig." data-en="We run online workshops and courses for businesses and individuals who want to understand and use AI in practice. You don&rsquo;t need to be technical &mdash; just curious.">Vi afholder online workshops og kurser for virksomheder og enkeltpersoner der vil forst&aring; og bruge AI i praksis. Du beh&oslash;ver ikke v&aelig;re teknisk &mdash; bare nysgerrig.</p>
                 <div class="courses-points">
                     <div class="courses-point">
                         <div class="courses-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
@@ -673,8 +673,8 @@
                     <div class="courses-point">
                         <div class="courses-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
                         <div>
-                            <h4 data-dk="Fysisk undervisning" data-en="In-person teaching">Fysisk undervisning</h4>
-                            <p data-dk="Hands-on i Danmark." data-en="Hands-on in Denmark.">Hands-on i Danmark.</p>
+                            <h4 data-dk="Online undervisning" data-en="Online teaching">Online undervisning</h4>
+                            <p data-dk="Live undervisning du kan f&oslash;lge hjemmefra." data-en="Live teaching you can follow from home.">Live undervisning du kan f&oslash;lge hjemmefra.</p>
                         </div>
                     </div>
                     <div class="courses-point">
@@ -784,7 +784,7 @@
 <footer class="footer">
     <div class="footer-inner">
         <div class="footer-logo"><img src="Logo.png" alt="Operise"></div>
-        <div class="footer-copy" data-dk="&copy; 2026 Operise ApS. Alle rettigheder forbeholdes." data-en="&copy; 2026 Operise ApS. All rights reserved.">&copy; 2026 Operise ApS. Alle rettigheder forbeholdes.</div>
+        <div class="footer-copy" data-dk="&copy; 2026 Operise. Alle rettigheder forbeholdes." data-en="&copy; 2026 Operise. All rights reserved.">&copy; 2026 Operise. Alle rettigheder forbeholdes.</div>
         <div class="footer-links">
             <a href="mailto:hello@operise.dk" data-dk="Kontakt" data-en="Contact">Kontakt</a>
         </div>
