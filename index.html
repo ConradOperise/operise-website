@@ -1,529 +1,481 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operise — AI Operating Systems for Business</title>
-    <meta name="description" content="Operise delivers a team of AI workers that run locally on your server. Full GDPR compliance. Zero cloud dependency. Enterprise-grade AI operations.">
-    <meta name="keywords" content="AI operating system, business AI, GDPR compliant AI, local AI, enterprise AI agents, AI workers">
-    <meta property="og:title" content="Operise — AI Operating Systems for Business">
-    <meta property="og:description" content="A team of AI workers running on your local server. Privacy-first. GDPR-compliant. Enterprise-ready.">
+    <title>Operise — AI Automatisering for Virksomheder</title>
+    <meta name="description" content="Operise hjælper danske virksomheder med at implementere AI-automatisering der sparer tid, reducerer fejl og frigør ressourcer.">
+    <meta name="keywords" content="AI automatisering, AI bureau, AI kurser, dansk AI, virksomheds AI, AI konsulent Danmark">
+    <meta property="og:title" content="Operise — AI Automatisering for Virksomheder">
+    <meta property="og:description" content="Vi hjælper danske virksomheder med at implementere AI-automatisering. Kurser, rådgivning og implementering.">
     <meta property="og:image" content="Logo.png">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="Logo.png">
 
-```
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-    :root {
-        --navy-deepest: #060d18;
-        --navy-deep: #0a1628;
-        --navy: #0f1d32;
-        --navy-mid: #152540;
-        --navy-light: #1c3054;
-        --silver: #c8cfd8;
-        --silver-bright: #e2e7ed;
-        --silver-white: #f0f2f5;
-        --accent: #4a8eff;
-        --accent-glow: rgba(74, 142, 255, 0.15);
-        --accent-soft: rgba(74, 142, 255, 0.08);
-        --green: #4ac882;
-        --green-soft: rgba(74, 200, 130, 0.1);
-        --green-border: rgba(74, 200, 130, 0.25);
-        --font-display: 'Instrument Serif', Georgia, serif;
-        --font-body: 'DM Sans', system-ui, sans-serif;
-        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-        --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    <style>
+        :root {
+            --bg-deepest: #08090D;
+            --bg-section: #0E1117;
+            --bg-surface: #161B22;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-accent: rgba(212, 168, 83, 0.25);
+            --amber: #D4A853;
+            --amber-hover: #E4BE73;
+            --amber-soft: rgba(212, 168, 83, 0.08);
+            --amber-border: rgba(212, 168, 83, 0.12);
+            --text-primary: #EAEDF2;
+            --text-heading: #F4F6F9;
+            --text-muted: #8B919A;
+            --green: #4AC882;
+            --green-soft: rgba(74, 200, 130, 0.1);
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
-    body {
-        font-family: var(--font-body); background: var(--navy-deepest);
-        color: var(--silver); line-height: 1.7; overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-    }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--navy-deepest); }
-    ::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+        body {
+            font-family: var(--font-body); background: var(--bg-deepest);
+            color: var(--text-primary); line-height: 1.7; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* ===================== NAVIGATION ===================== */
-    .nav {
-        position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-        padding: 1.1rem 2.5rem; display: flex; align-items: center;
-        justify-content: space-between; transition: all 0.4s var(--ease-smooth);
-        background: transparent;
-    }
-    .nav.scrolled {
-        background: rgba(6, 13, 24, 0.88); backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        border-bottom: 1px solid rgba(74, 142, 255, 0.06); padding: 0.7rem 2.5rem;
-    }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo img { height: 34px; width: auto; transition: height 0.3s; }
-    .nav.scrolled .nav-logo img { height: 28px; }
-    .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
-    .nav-links a {
-        color: var(--silver); text-decoration: none; font-size: 0.85rem;
-        font-weight: 500; letter-spacing: 0.02em; transition: color 0.3s; position: relative;
-    }
-    .nav-links a::after {
-        content: ''; position: absolute; bottom: -4px; left: 0; width: 0;
-        height: 1px; background: var(--accent); transition: width 0.3s var(--ease-out);
-    }
-    .nav-links a:hover { color: var(--silver-white); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-right { display: flex; align-items: center; gap: 1.25rem; }
-    .lang-toggle {
-        display: flex; background: rgba(255,255,255,0.04); border-radius: 20px;
-        padding: 2px; border: 1px solid rgba(255,255,255,0.07);
-    }
-    .lang-btn {
-        padding: 0.3rem 0.7rem; border: none; background: none; color: var(--silver);
-        font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
-        cursor: pointer; border-radius: 18px; transition: all 0.3s; letter-spacing: 0.05em;
-    }
-    .lang-btn.active { background: var(--accent); color: #fff; }
-    .btn-demo {
-        display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.4rem;
-        background: var(--accent); color: #fff; border: none; border-radius: 8px;
-        font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
-        cursor: pointer; text-decoration: none; transition: all 0.3s var(--ease-out);
-    }
-    .btn-demo:hover {
-        background: #5e9bff; transform: translateY(-1px);
-        box-shadow: 0 8px 30px rgba(74, 142, 255, 0.3);
-    }
-    .btn-demo svg { width: 14px; height: 14px; transition: transform 0.3s; }
-    .btn-demo:hover svg { transform: translateX(3px); }
-    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-    .mobile-toggle span {
-        display: block; width: 22px; height: 2px; background: var(--silver-bright);
-        margin: 5px 0; transition: all 0.3s; border-radius: 1px;
-    }
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+        }
 
-    /* ===================== HERO ===================== */
-    .hero {
-        position: relative; min-height: 100vh; display: flex; align-items: center;
-        justify-content: center; overflow: hidden; padding: 8rem 2rem 5rem;
-    }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; }
-    .hero-grid {
-        position: absolute; inset: 0;
-        background-image:
-            linear-gradient(rgba(74, 142, 255, 0.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(74, 142, 255, 0.035) 1px, transparent 1px);
-        background-size: 60px 60px;
-        mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
-        -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
-    }
-    .hero-glow {
-        position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
-        width: 800px; height: 500px;
-        background: radial-gradient(ellipse, rgba(74, 142, 255, 0.07) 0%, transparent 70%);
-        pointer-events: none;
-    }
-    .hero-glow-2 {
-        position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-        width: 1200px; height: 300px;
-        background: radial-gradient(ellipse, rgba(74, 142, 255, 0.035) 0%, transparent 70%);
-        pointer-events: none;
-    }
-    .particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-    .particle {
-        position: absolute; width: 2px; height: 2px;
-        background: rgba(74, 142, 255, 0.35); border-radius: 50%;
-        animation: particleFloat linear infinite;
-    }
-    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 880px; }
-    .hero-badge {
-        display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1.1rem;
-        background: var(--accent-soft); border: 1px solid rgba(74, 142, 255, 0.15);
-        border-radius: 100px; font-size: 0.8rem; font-weight: 500; color: var(--accent);
-        margin-bottom: 2rem; letter-spacing: 0.03em;
-        animation: fadeSlideUp 0.8s var(--ease-out) both;
-    }
-    .hero-badge .pulse {
-        width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
-        animation: pulse 2s ease-in-out infinite;
-    }
-    .hero-title {
-        font-family: var(--font-display); font-size: clamp(2.8rem, 6.5vw, 5.2rem);
-        line-height: 1.08; color: var(--silver-white); margin-bottom: 1.5rem;
-        font-weight: 400; animation: fadeSlideUp 0.8s var(--ease-out) 0.1s both;
-    }
-    .hero-title em { font-style: italic; color: var(--accent); }
-    .hero-subtitle {
-        font-size: clamp(1.02rem, 1.8vw, 1.2rem); color: var(--silver);
-        max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8; font-weight: 300;
-        animation: fadeSlideUp 0.8s var(--ease-out) 0.2s both;
-    }
-    .hero-actions {
-        display: flex; align-items: center; justify-content: center; gap: 1rem;
-        animation: fadeSlideUp 0.8s var(--ease-out) 0.3s both;
-    }
-    .btn-primary {
-        display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.85rem 2rem;
-        background: var(--accent); color: #fff; border: none; border-radius: 10px;
-        font-family: var(--font-body); font-size: 1rem; font-weight: 600;
-        cursor: pointer; text-decoration: none; transition: all 0.3s var(--ease-out);
-    }
-    .btn-primary:hover {
-        background: #5e9bff; transform: translateY(-2px);
-        box-shadow: 0 12px 40px rgba(74, 142, 255, 0.35);
-    }
-    .btn-primary svg { width: 16px; height: 16px; transition: transform 0.3s; }
-    .btn-primary:hover svg { transform: translateX(3px); }
-    .btn-secondary {
-        display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem;
-        background: transparent; color: var(--silver-bright);
-        border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
-        font-family: var(--font-body); font-size: 1rem; font-weight: 500;
-        cursor: pointer; text-decoration: none; transition: all 0.3s var(--ease-out);
-    }
-    .btn-secondary:hover {
-        border-color: rgba(74, 142, 255, 0.35); background: var(--accent-soft); color: #fff;
-    }
-    .hero-stats {
-        display: flex; justify-content: center; gap: 3.5rem; margin-top: 4rem;
-        padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.05);
-        animation: fadeSlideUp 0.8s var(--ease-out) 0.5s both;
-    }
-    .stat { text-align: center; }
-    .stat-value { font-family: var(--font-display); font-size: 2.2rem; color: var(--silver-white); }
-    .stat-label {
-        font-size: 0.78rem; color: var(--silver); margin-top: 0.2rem;
-        letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;
-    }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deepest); }
+        ::-webkit-scrollbar-thumb { background: #2A2F38; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--amber); }
 
-    /* ===================== SECTIONS SHARED ===================== */
-    .section { padding: 7rem 2rem; position: relative; }
-    .section-container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-        font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.16em;
-        color: var(--accent); font-weight: 600; margin-bottom: 1rem;
-    }
-    .section-title {
-        font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
-        color: var(--silver-white); line-height: 1.15; margin-bottom: 1.25rem;
-    }
-    .section-title em { font-style: italic; color: var(--accent); }
-    .section-desc {
-        font-size: 1.02rem; color: var(--silver); max-width: 580px;
-        line-height: 1.8; font-weight: 300;
-    }
-    .reveal {
-        opacity: 0; transform: translateY(40px);
-        transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+        .section-divider {
+            height: 1px; border: none; margin: 0;
+            background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.25), transparent);
+        }
 
-    /* ===================== ABOUT ===================== */
-    #about { background: var(--navy-deep); }
-    .about-grid {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-        align-items: center; margin-top: 3rem;
-    }
-    .about-visual { display: flex; align-items: center; justify-content: center; }
-    .about-orb {
-        width: 300px; height: 300px; border-radius: 50%;
-        background: radial-gradient(circle at 30% 30%, var(--navy-light), var(--navy-deepest));
-        border: 1px solid rgba(74, 142, 255, 0.1);
-        display: flex; align-items: center; justify-content: center;
-        position: relative; animation: orbFloat 6s ease-in-out infinite;
-    }
-    .about-orb::before {
-        content: ''; position: absolute; inset: -18px; border-radius: 50%;
-        border: 1px solid rgba(74, 142, 255, 0.05);
-        animation: orbFloat 6s ease-in-out infinite reverse;
-    }
-    .about-orb::after {
-        content: ''; position: absolute; inset: -36px; border-radius: 50%;
-        border: 1px dashed rgba(74, 142, 255, 0.04);
-        animation: orbSpin 25s linear infinite;
-    }
-    .orb-inner {
-        width: 120px; height: 120px; border-radius: 50%;
-        background: radial-gradient(circle at 40% 40%, var(--accent-glow), transparent 70%);
-        border: 1px solid rgba(74, 142, 255, 0.15);
-        display: flex; align-items: center; justify-content: center;
-    }
-    .orb-inner svg { width: 40px; height: 40px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
-    .about-features { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
-    .about-feature { display: flex; gap: 1rem; align-items: flex-start; }
-    .about-feature-icon {
-        flex-shrink: 0; width: 40px; height: 40px; background: var(--accent-soft);
-        border: 1px solid rgba(74, 142, 255, 0.1); border-radius: 10px;
-        display: flex; align-items: center; justify-content: center;
-    }
-    .about-feature-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
-    .about-feature h4 { color: var(--silver-white); font-size: 0.93rem; font-weight: 600; margin-bottom: 0.15rem; }
-    .about-feature p { font-size: 0.85rem; color: var(--silver); line-height: 1.65; font-weight: 300; }
+        /* ===================== NAVIGATION ===================== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 1.1rem 2.5rem; display: flex; align-items: center;
+            justify-content: space-between; transition: all 0.4s var(--ease-smooth);
+            background: transparent;
+        }
+        .nav.scrolled {
+            background: rgba(8, 9, 13, 0.9); backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--amber-border); padding: 0.7rem 2.5rem;
+        }
+        .nav-logo { display: flex; align-items: center; text-decoration: none; }
+        .nav-logo img { height: 34px; width: auto; transition: height 0.3s; }
+        .nav.scrolled .nav-logo img { height: 28px; }
+        .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted); text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; letter-spacing: 0.02em; transition: color 0.3s; position: relative;
+            cursor: pointer;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0;
+            height: 1px; background: var(--amber); transition: width 0.3s var(--ease-out);
+        }
+        .nav-links a:hover { color: var(--text-heading); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+        .lang-toggle {
+            display: flex; background: rgba(255,255,255,0.04); border-radius: 20px;
+            padding: 2px; border: 1px solid rgba(255,255,255,0.07);
+        }
+        .lang-btn {
+            padding: 0.3rem 0.7rem; border: none; background: none; color: var(--text-muted);
+            font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+            cursor: pointer; border-radius: 18px; transition: all 0.3s; letter-spacing: 0.05em;
+        }
+        .lang-btn.active { background: var(--amber); color: #fff; }
+        .btn-demo {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.4rem;
+            background: var(--amber); color: #fff; border: none; border-radius: 8px;
+            font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+            cursor: pointer; text-decoration: none; transition: all 0.3s var(--ease-out);
+        }
+        .btn-demo:hover {
+            background: var(--amber-hover); transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25);
+        }
+        .btn-demo svg { width: 14px; height: 14px; transition: transform 0.3s; }
+        .btn-demo:hover svg { transform: translateX(3px); }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span {
+            display: block; width: 22px; height: 2px; background: var(--text-primary);
+            margin: 5px 0; transition: all 0.3s; border-radius: 1px;
+        }
 
-    /* ===================== AI WORKERS ===================== */
-    #workers { background: var(--navy-deepest); }
-    .workers-header { text-align: center; margin-bottom: 3.5rem; }
-    .workers-header .section-desc { margin: 0 auto; }
-    .workers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .worker-card {
-        background: linear-gradient(145deg, rgba(21, 37, 64, 0.6), rgba(15, 29, 50, 0.4));
-        border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;
-        padding: 2rem; transition: all 0.4s var(--ease-out);
-        position: relative; overflow: hidden;
-    }
-    .worker-card::before {
-        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-        background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        opacity: 0; transition: opacity 0.4s;
-    }
-    .worker-card:hover {
-        border-color: rgba(74, 142, 255, 0.18); transform: translateY(-4px);
-        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .worker-card:hover::before { opacity: 1; }
-    .worker-icon {
-        width: 50px; height: 50px; background: var(--accent-soft);
-        border: 1px solid rgba(74, 142, 255, 0.1); border-radius: 13px;
-        display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
-    }
-    .worker-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
-    .worker-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--silver-white); margin-bottom: 0.5rem; }
-    .worker-card p { font-size: 0.85rem; color: var(--silver); line-height: 1.7; font-weight: 300; }
-    .worker-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
-    .worker-tag {
-        padding: 0.22rem 0.6rem; background: rgba(74, 142, 255, 0.06);
-        border: 1px solid rgba(74, 142, 255, 0.1); border-radius: 6px;
-        font-size: 0.68rem; color: var(--accent); font-weight: 500; letter-spacing: 0.02em;
-    }
-    .workers-grid .worker-card:nth-child(4) { grid-column: 1 / 2; }
-    .workers-grid .worker-card:nth-child(5) { grid-column: 2 / 4; }
+        /* ===================== HERO ===================== */
+        .hero {
+            position: relative; min-height: 100vh; display: flex; align-items: center;
+            justify-content: center; overflow: hidden; padding: 8rem 2rem 5rem;
+        }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 880px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1.1rem;
+            background: var(--amber-soft); border: 1px solid var(--amber-border);
+            border-radius: 100px; font-size: 0.8rem; font-weight: 500; color: var(--amber);
+            margin-bottom: 2rem; letter-spacing: 0.03em;
+            animation: fadeSlideUp 0.8s var(--ease-out) both;
+        }
+        .hero-badge .pulse {
+            width: 6px; height: 6px; background: var(--amber); border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .hero-title {
+            font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 4.8rem);
+            line-height: 1.08; color: var(--text-heading); margin-bottom: 1.5rem;
+            font-weight: 400; animation: fadeSlideUp 0.8s var(--ease-out) 0.1s both;
+        }
+        .hero-title em { font-style: italic; color: var(--amber); }
+        .hero-subtitle {
+            font-size: clamp(1.02rem, 1.8vw, 1.15rem); color: var(--text-muted);
+            max-width: 620px; margin: 0 auto 2.5rem; line-height: 1.8; font-weight: 300;
+            animation: fadeSlideUp 0.8s var(--ease-out) 0.2s both;
+        }
+        .hero-actions {
+            display: flex; align-items: center; justify-content: center; gap: 1rem;
+            animation: fadeSlideUp 0.8s var(--ease-out) 0.3s both;
+        }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.85rem 2rem;
+            background: var(--amber); color: #fff; border: none; border-radius: 10px;
+            font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+            cursor: pointer; text-decoration: none; transition: all 0.3s var(--ease-out);
+        }
+        .btn-primary:hover {
+            background: var(--amber-hover); transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(212, 168, 83, 0.3);
+        }
+        .btn-primary svg { width: 16px; height: 16px; transition: transform 0.3s; }
+        .btn-primary:hover svg { transform: translateX(3px); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem;
+            background: transparent; color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+            font-family: var(--font-body); font-size: 1rem; font-weight: 500;
+            cursor: pointer; text-decoration: none; transition: all 0.3s var(--ease-out);
+        }
+        .btn-secondary:hover {
+            border-color: var(--border-accent); background: var(--amber-soft); color: #fff;
+        }
+        .hero-stats {
+            display: flex; justify-content: center; gap: 3.5rem; margin-top: 4rem;
+            padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.05);
+            animation: fadeSlideUp 0.8s var(--ease-out) 0.5s both;
+        }
+        .stat { text-align: center; }
+        .stat-value {
+            font-family: var(--font-display); font-size: 1.1rem; color: var(--amber);
+            font-style: italic;
+        }
 
-    /* ===================== HOW IT WORKS ===================== */
-    #how { background: var(--navy-deep); }
-    .how-header { text-align: center; margin-bottom: 4rem; }
-    .how-header .section-desc { margin: 0 auto; }
-    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
-    .how-steps::before {
-        content: ''; position: absolute; top: 40px; left: 16%; right: 16%; height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(74,142,255,0.18), rgba(74,142,255,0.18), transparent);
-    }
-    .how-step { text-align: center; position: relative; }
-    .step-num {
-        width: 52px; height: 52px; background: var(--navy); border: 2px solid rgba(74, 142, 255, 0.22);
-        border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        font-family: var(--font-display); font-size: 1.3rem; color: var(--accent);
-        margin: 0 auto 1.5rem; position: relative; z-index: 2;
-    }
-    .how-step h3 { font-size: 1.1rem; color: var(--silver-white); font-weight: 700; margin-bottom: 0.5rem; }
-    .how-step p {
-        font-size: 0.88rem; color: var(--silver); line-height: 1.7; font-weight: 300;
-        max-width: 280px; margin: 0 auto;
-    }
+        /* ===================== SECTIONS SHARED ===================== */
+        .section { padding: 7rem 2rem; position: relative; }
+        .section-container { max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.16em;
+            color: var(--amber); font-weight: 600; margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text-heading); line-height: 1.15; margin-bottom: 1.25rem;
+        }
+        .section-title em { font-style: italic; color: var(--amber); }
+        .section-desc {
+            font-size: 1.02rem; color: var(--text-muted); max-width: 580px;
+            line-height: 1.8; font-weight: 300;
+        }
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ===================== PRIVACY ===================== */
-    #privacy { background: var(--navy-deepest); }
-    .privacy-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .privacy-visual { display: flex; justify-content: center; }
-    .shield {
-        width: 240px; height: 280px; position: relative;
-        display: flex; align-items: center; justify-content: center;
-    }
-    .shield-shape {
-        width: 160px; height: 190px; position: relative;
-        background: linear-gradient(180deg, var(--navy-mid), var(--navy-deep));
-        clip-path: polygon(50% 0%, 100% 12%, 100% 65%, 50% 100%, 0% 65%, 0% 12%);
-        display: flex; align-items: center; justify-content: center;
-    }
-    .shield-shape::before {
-        content: ''; position: absolute; inset: 2px;
-        background: linear-gradient(180deg, var(--navy), var(--navy-deepest));
-        clip-path: polygon(50% 0%, 100% 12%, 100% 65%, 50% 100%, 0% 65%, 0% 12%);
-    }
-    .shield-shape svg {
-        position: relative; z-index: 1; width: 48px; height: 48px;
-        stroke: var(--green); fill: none; stroke-width: 1.5;
-    }
-    .shield-ring {
-        position: absolute; inset: -15px; border-radius: 50%;
-        border: 1px solid rgba(74, 200, 130, 0.08); animation: orbFloat 5s ease-in-out infinite;
-    }
-    .shield-ring-2 {
-        position: absolute; inset: -35px; border-radius: 50%;
-        border: 1px dashed rgba(74, 200, 130, 0.05); animation: orbSpin 20s linear infinite reverse;
-    }
-    .shield-glow {
-        position: absolute; width: 200px; height: 200px;
-        background: radial-gradient(circle, rgba(74, 200, 130, 0.08), transparent 70%);
-        pointer-events: none;
-    }
-    .privacy-points { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 2rem; }
-    .privacy-point { display: flex; gap: 1rem; align-items: flex-start; }
-    .privacy-check {
-        flex-shrink: 0; width: 24px; height: 24px; background: var(--green-soft);
-        border: 1px solid var(--green-border); border-radius: 50%;
-        display: flex; align-items: center; justify-content: center; margin-top: 0.1rem;
-    }
-    .privacy-check svg { width: 12px; height: 12px; stroke: var(--green); fill: none; stroke-width: 2.5; }
-    .privacy-point h4 { color: var(--silver-white); font-size: 0.93rem; font-weight: 600; margin-bottom: 0.12rem; }
-    .privacy-point p { font-size: 0.84rem; color: var(--silver); line-height: 1.65; font-weight: 300; }
+        /* ===================== ABOUT ===================== */
+        #about { background: var(--bg-section); }
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+            align-items: center; margin-top: 3rem;
+        }
+        .about-visual { display: flex; align-items: center; justify-content: center; }
+        .about-logo-wrap {
+            width: 280px; height: 280px; border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, var(--bg-surface), var(--bg-deepest));
+            border: 1px solid var(--amber-border);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .about-logo-wrap::before {
+            content: ''; position: absolute; inset: -18px; border-radius: 50%;
+            border: 1px solid rgba(212, 168, 83, 0.06);
+        }
+        .about-logo-wrap::after {
+            content: ''; position: absolute; inset: -36px; border-radius: 50%;
+            border: 1px dashed rgba(212, 168, 83, 0.04);
+        }
+        .about-logo-wrap img { height: 80px; width: auto; opacity: 0.9; }
+        .about-features { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+        .about-feature { display: flex; gap: 1rem; align-items: flex-start; }
+        .about-feature-icon {
+            flex-shrink: 0; width: 40px; height: 40px; background: var(--amber-soft);
+            border: 1px solid var(--amber-border); border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .about-feature-icon svg { width: 18px; height: 18px; stroke: var(--amber); fill: none; stroke-width: 1.8; }
+        .about-feature h4 { color: var(--text-heading); font-size: 0.93rem; font-weight: 600; margin-bottom: 0.15rem; }
+        .about-feature p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
 
-    /* ===================== DEMO ===================== */
-    #demo { background: var(--navy-deep); position: relative; overflow: hidden; }
-    #demo::before {
-        content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px;
-        background: radial-gradient(circle, rgba(74, 142, 255, 0.04), transparent 70%);
-        pointer-events: none;
-    }
-    .demo-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .demo-form-wrap {
-        background: linear-gradient(145deg, rgba(21, 37, 64, 0.5), rgba(10, 22, 40, 0.8));
-        border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 2.5rem;
-    }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label {
-        display: block; font-size: 0.78rem; font-weight: 600;
-        color: var(--silver-bright); margin-bottom: 0.35rem; letter-spacing: 0.03em;
-    }
-    .form-group input, .form-group select, .form-group textarea {
-        width: 100%; padding: 0.72rem 1rem; background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
-        color: var(--silver-white); font-family: var(--font-body); font-size: 0.88rem;
-        transition: all 0.3s; outline: none;
-    }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(200, 207, 216, 0.35); }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-        border-color: var(--accent); background: rgba(74, 142, 255, 0.04);
-        box-shadow: 0 0 0 3px rgba(74, 142, 255, 0.08);
-    }
-    .form-group select {
-        appearance: none; cursor: pointer;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23c8cfd8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-        background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem;
-    }
-    .form-group select option { background: var(--navy); color: var(--silver-bright); }
-    .form-group textarea { resize: vertical; min-height: 90px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .btn-submit {
-        width: 100%; padding: 0.85rem; background: var(--accent); color: #fff;
-        border: none; border-radius: 10px; font-family: var(--font-body);
-        font-size: 0.95rem; font-weight: 600; cursor: pointer;
-        transition: all 0.3s var(--ease-out); margin-top: 0.5rem;
-        display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-    }
-    .btn-submit:hover {
-        background: #5e9bff; transform: translateY(-1px);
-        box-shadow: 0 8px 30px rgba(74, 142, 255, 0.3);
-    }
-    .btn-submit svg { width: 16px; height: 16px; transition: transform 0.3s; }
-    .btn-submit:hover svg { transform: translateX(3px); }
-    .demo-info h3 {
-        font-family: var(--font-display); font-size: 1.5rem;
-        color: var(--silver-white); margin-top: 2rem; margin-bottom: 0.7rem;
-    }
-    .demo-info p { font-size: 0.88rem; color: var(--silver); line-height: 1.7; font-weight: 300; }
-    .demo-perks { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
-    .demo-perk {
-        display: flex; align-items: center; gap: 0.75rem;
-        font-size: 0.88rem; color: var(--silver-bright); font-weight: 400;
-    }
-    .demo-perk .perk-icon {
-        width: 32px; height: 32px; background: var(--accent-soft); border-radius: 8px;
-        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .demo-perk .perk-icon svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
-    .form-success { display: none; text-align: center; padding: 2rem 1rem; }
-    .form-success.show { display: block; }
-    .form-success svg { width: 48px; height: 48px; stroke: var(--green); fill: none; stroke-width: 1.5; margin-bottom: 1rem; }
-    .form-success h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--silver-white); margin-bottom: 0.5rem; }
-    .form-success p { font-size: 0.9rem; color: var(--silver); font-weight: 300; }
+        /* ===================== SERVICES ===================== */
+        #services { background: var(--bg-deepest); }
+        .services-header { text-align: center; margin-bottom: 3.5rem; }
+        .services-header .section-desc { margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .service-card {
+            background: linear-gradient(145deg, rgba(22, 27, 34, 0.8), rgba(14, 17, 23, 0.6));
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 2rem; transition: all 0.4s var(--ease-out);
+            position: relative; overflow: hidden; cursor: pointer;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--amber), transparent);
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .service-card:hover {
+            border-color: var(--border-accent); transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-icon {
+            width: 50px; height: 50px; background: var(--amber-soft);
+            border: 1px solid var(--amber-border); border-radius: 13px;
+            display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
+        }
+        .service-icon svg { width: 22px; height: 22px; stroke: var(--amber); fill: none; stroke-width: 1.8; }
+        .service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.5rem; }
+        .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+        .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+        .service-tag {
+            padding: 0.22rem 0.6rem; background: var(--amber-soft);
+            border: 1px solid var(--amber-border); border-radius: 6px;
+            font-size: 0.68rem; color: var(--amber); font-weight: 500; letter-spacing: 0.02em;
+        }
 
-    /* ===================== FOOTER ===================== */
-    .footer {
-        background: var(--navy-deepest); border-top: 1px solid rgba(255,255,255,0.04);
-        padding: 3rem 2rem 2rem;
-    }
-    .footer-inner {
-        max-width: 1100px; margin: 0 auto; display: flex;
-        justify-content: space-between; align-items: center;
-    }
-    .footer-logo { display: flex; align-items: center; }
-    .footer-logo img { height: 26px; }
-    .footer-copy { font-size: 0.78rem; color: rgba(200, 207, 216, 0.45); }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: var(--silver); text-decoration: none; font-size: 0.78rem; transition: color 0.3s; }
-    .footer-links a:hover { color: var(--accent); }
+        /* ===================== HOW IT WORKS ===================== */
+        #process { background: var(--bg-section); }
+        .how-header { text-align: center; margin-bottom: 4rem; }
+        .how-header .section-desc { margin: 0 auto; }
+        .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
+        .how-steps::before {
+            content: ''; position: absolute; top: 40px; left: 16%; right: 16%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.2), rgba(212, 168, 83, 0.2), transparent);
+        }
+        .how-step { text-align: center; position: relative; }
+        .step-num {
+            width: 52px; height: 52px; background: var(--bg-section); border: 2px solid var(--border-accent);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-size: 1.3rem; color: var(--amber);
+            margin: 0 auto 1.5rem; position: relative; z-index: 2;
+        }
+        .how-step h3 { font-size: 1.1rem; color: var(--text-heading); font-weight: 700; margin-bottom: 0.5rem; }
+        .how-step p {
+            font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; font-weight: 300;
+            max-width: 280px; margin: 0 auto;
+        }
 
-    /* ===================== ANIMATIONS ===================== */
-    @keyframes fadeSlideUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.5; transform: scale(1.6); }
-    }
-    @keyframes orbFloat {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-12px); }
-    }
-    @keyframes orbSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes particleFloat {
-        0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-        10% { opacity: 1; } 90% { opacity: 1; }
-        100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
-    }
+        /* ===================== COURSES ===================== */
+        #courses { background: var(--bg-deepest); }
+        .courses-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .courses-visual { display: flex; justify-content: center; }
+        .courses-icon-wrap {
+            width: 240px; height: 240px; border-radius: 24px;
+            background: linear-gradient(145deg, var(--bg-surface), var(--bg-deepest));
+            border: 1px solid var(--amber-border);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .courses-icon-wrap svg { width: 64px; height: 64px; stroke: var(--amber); fill: none; stroke-width: 1.2; }
+        .courses-icon-wrap::before {
+            content: ''; position: absolute; inset: -12px; border-radius: 30px;
+            border: 1px solid rgba(212, 168, 83, 0.06);
+        }
+        .courses-points { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 2rem; }
+        .courses-point { display: flex; gap: 1rem; align-items: flex-start; }
+        .courses-check {
+            flex-shrink: 0; width: 24px; height: 24px; background: var(--amber-soft);
+            border: 1px solid var(--amber-border); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin-top: 0.1rem;
+        }
+        .courses-check svg { width: 12px; height: 12px; stroke: var(--amber); fill: none; stroke-width: 2.5; }
+        .courses-point h4 { color: var(--text-heading); font-size: 0.93rem; font-weight: 600; margin-bottom: 0.12rem; }
+        .courses-point p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+        .btn-courses {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.6rem;
+            background: transparent; color: var(--amber);
+            border: 1px solid var(--border-accent); border-radius: 10px;
+            font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; text-decoration: none; transition: all 0.3s var(--ease-out);
+            margin-top: 2rem;
+        }
+        .btn-courses:hover {
+            background: var(--amber-soft); border-color: var(--amber);
+        }
+        .btn-courses svg { width: 14px; height: 14px; transition: transform 0.3s; }
+        .btn-courses:hover svg { transform: translateX(3px); }
 
-    /* ===================== RESPONSIVE ===================== */
-    @media (max-width: 968px) {
-        .nav-links { display: none; }
-        .mobile-toggle { display: block; }
-        .about-grid, .privacy-layout, .demo-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-        .about-visual { order: -1; }
-        .privacy-visual { order: -1; }
-        .workers-grid { grid-template-columns: 1fr 1fr; }
-        .workers-grid .worker-card:nth-child(5) { grid-column: 1 / -1; }
-        .how-steps::before { display: none; }
-        .form-row { grid-template-columns: 1fr; }
-        .hero-stats { gap: 2rem; }
-        .nav { padding: 0.9rem 1.5rem; }
-    }
-    @media (max-width: 640px) {
-        .section { padding: 4.5rem 1.25rem; }
-        .hero { padding: 6.5rem 1.25rem 3rem; }
-        .workers-grid { grid-template-columns: 1fr; }
-        .workers-grid .worker-card:nth-child(4),
-        .workers-grid .worker-card:nth-child(5) { grid-column: auto; }
-        .how-steps { grid-template-columns: 1fr; gap: 2.5rem; }
-        .hero-actions { flex-direction: column; }
-        .hero-stats { flex-direction: column; gap: 1.2rem; }
-        .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
-        .demo-form-wrap { padding: 1.5rem; }
-    }
-    .mobile-nav {
-        position: fixed; inset: 0; background: rgba(6, 13, 24, 0.97);
-        backdrop-filter: blur(20px); z-index: 999;
-        display: flex; flex-direction: column; align-items: center;
-        justify-content: center; gap: 2rem;
-        opacity: 0; pointer-events: none; transition: opacity 0.3s;
-    }
-    .mobile-nav.open { opacity: 1; pointer-events: all; }
-    .mobile-nav a {
-        font-family: var(--font-display); font-size: 1.8rem;
-        color: var(--silver-white); text-decoration: none; transition: color 0.3s;
-    }
-    .mobile-nav a:hover { color: var(--accent); }
-    .mobile-nav-close {
-        position: absolute; top: 1.5rem; right: 1.5rem; background: none;
-        border: none; color: var(--silver); font-size: 2rem; cursor: pointer;
-    }
-</style>
-```
+        /* ===================== CONTACT ===================== */
+        #kontakt { background: var(--bg-section); position: relative; overflow: hidden; }
+        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .contact-form-wrap {
+            background: linear-gradient(145deg, rgba(22, 27, 34, 0.5), rgba(8, 9, 13, 0.8));
+            border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem;
+        }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label {
+            display: block; font-size: 0.78rem; font-weight: 600;
+            color: var(--text-primary); margin-bottom: 0.35rem; letter-spacing: 0.03em;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 0.72rem 1rem; background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text-heading); font-family: var(--font-body); font-size: 0.88rem;
+            transition: all 0.3s; outline: none;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(234, 237, 242, 0.25); }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--amber); background: rgba(212, 168, 83, 0.04);
+            box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.08);
+        }
+        .form-group textarea { resize: vertical; min-height: 90px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .btn-submit {
+            width: 100%; padding: 0.85rem; background: var(--amber); color: #fff;
+            border: none; border-radius: 10px; font-family: var(--font-body);
+            font-size: 0.95rem; font-weight: 600; cursor: pointer;
+            transition: all 0.3s var(--ease-out); margin-top: 0.5rem;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+        }
+        .btn-submit:hover {
+            background: var(--amber-hover); transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.25);
+        }
+        .btn-submit svg { width: 16px; height: 16px; transition: transform 0.3s; }
+        .btn-submit:hover svg { transform: translateX(3px); }
+        .contact-info h3 {
+            font-family: var(--font-display); font-size: 1.5rem;
+            color: var(--text-heading); margin-top: 2rem; margin-bottom: 0.7rem;
+        }
+        .contact-info p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+        .contact-perks { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+        .contact-perk {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-size: 0.88rem; color: var(--text-primary); font-weight: 400;
+        }
+        .contact-perk .perk-icon {
+            width: 32px; height: 32px; background: var(--amber-soft); border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .contact-perk .perk-icon svg { width: 16px; height: 16px; stroke: var(--amber); fill: none; stroke-width: 1.8; }
+        .form-success { display: none; text-align: center; padding: 2rem 1rem; }
+        .form-success.show { display: block; }
+        .form-success svg { width: 48px; height: 48px; stroke: var(--green); fill: none; stroke-width: 1.5; margin-bottom: 1rem; }
+        .form-success h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text-heading); margin-bottom: 0.5rem; }
+        .form-success p { font-size: 0.9rem; color: var(--text-muted); font-weight: 300; }
 
+        /* ===================== FOOTER ===================== */
+        .footer {
+            background: var(--bg-deepest); border-top: 1px solid rgba(255,255,255,0.04);
+            padding: 3rem 2rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        .footer-logo { display: flex; align-items: center; }
+        .footer-logo img { height: 26px; }
+        .footer-copy { font-size: 0.78rem; color: rgba(234, 237, 242, 0.35); }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.78rem; transition: color 0.3s; cursor: pointer; }
+        .footer-links a:hover { color: var(--amber); }
+
+        /* ===================== ANIMATIONS ===================== */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .about-grid, .courses-layout, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-visual { order: -1; }
+            .courses-visual { order: -1; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .how-steps::before { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .hero-stats { gap: 2rem; }
+            .nav { padding: 0.9rem 1.5rem; }
+        }
+        @media (max-width: 640px) {
+            .section { padding: 4.5rem 1.25rem; }
+            .hero { padding: 6.5rem 1.25rem 3rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .how-steps { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-actions { flex-direction: column; }
+            .hero-stats { flex-direction: column; gap: 1.2rem; }
+            .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .contact-form-wrap { padding: 1.5rem; }
+        }
+        .mobile-nav {
+            position: fixed; inset: 0; background: rgba(8, 9, 13, 0.97);
+            backdrop-filter: blur(20px); z-index: 999;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 2rem;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s;
+        }
+        .mobile-nav.open { opacity: 1; pointer-events: all; }
+        .mobile-nav a {
+            font-family: var(--font-display); font-size: 1.8rem;
+            color: var(--text-heading); text-decoration: none; transition: color 0.3s;
+            cursor: pointer;
+        }
+        .mobile-nav a:hover { color: var(--amber); }
+        .mobile-nav-close {
+            position: absolute; top: 1.5rem; right: 1.5rem; background: none;
+            border: none; color: var(--text-muted); font-size: 2rem; cursor: pointer;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
 </head>
 <body>
 
@@ -532,18 +484,18 @@
 <nav class="nav" id="nav">
     <a href="#" class="nav-logo"><img src="Logo.png" alt="Operise"></a>
     <ul class="nav-links">
-        <li><a href="#about" data-en="About" data-dk="Om os">About</a></li>
-        <li><a href="#workers" data-en="AI Workers" data-dk="AI Medarbejdere">AI Workers</a></li>
-        <li><a href="#how" data-en="How It Works" data-dk="Sådan virker det">How It Works</a></li>
-        <li><a href="#privacy" data-en="Privacy" data-dk="Privatliv">Privacy</a></li>
+        <li><a href="#about" data-dk="Om os" data-en="About">Om os</a></li>
+        <li><a href="#services" data-dk="Services" data-en="Services">Services</a></li>
+        <li><a href="#process" data-dk="Processen" data-en="Process">Processen</a></li>
+        <li><a href="#courses" data-dk="Kurser" data-en="Courses">Kurser</a></li>
     </ul>
     <div class="nav-right">
         <div class="lang-toggle">
-            <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" data-lang="dk" onclick="setLang('dk')">DK</button>
+            <button class="lang-btn active" data-lang="dk" onclick="setLang('dk')">DK</button>
+            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
         </div>
-        <a href="#demo" class="btn-demo">
-            <span data-en="Book a Demo" data-dk="Book en demo">Book a Demo</span>
+        <a href="#kontakt" class="btn-demo">
+            <span data-dk="Book en samtale" data-en="Book a call">Book en samtale</span>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
     </div>
@@ -551,46 +503,48 @@
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
-    <a href="#about" onclick="toggleMobileNav()" data-en="About" data-dk="Om os">About</a>
-    <a href="#workers" onclick="toggleMobileNav()" data-en="AI Workers" data-dk="AI Medarbejdere">AI Workers</a>
-    <a href="#how" onclick="toggleMobileNav()" data-en="How It Works" data-dk="Sådan virker det">How It Works</a>
-    <a href="#privacy" onclick="toggleMobileNav()" data-en="Privacy" data-dk="Privatliv">Privacy</a>
-    <a href="#demo" onclick="toggleMobileNav()" data-en="Book a Demo" data-dk="Book en demo">Book a Demo</a>
+    <button class="mobile-nav-close" onclick="toggleMobileNav()" aria-label="Luk menu">&times;</button>
+    <a href="#about" onclick="toggleMobileNav()" data-dk="Om os" data-en="About">Om os</a>
+    <a href="#services" onclick="toggleMobileNav()" data-dk="Services" data-en="Services">Services</a>
+    <a href="#process" onclick="toggleMobileNav()" data-dk="Processen" data-en="Process">Processen</a>
+    <a href="#courses" onclick="toggleMobileNav()" data-dk="Kurser" data-en="Courses">Kurser</a>
+    <a href="#kontakt" onclick="toggleMobileNav()" data-dk="Book en samtale" data-en="Book a call">Book en samtale</a>
 </div>
 
 <!-- ==================== HERO ==================== -->
 
 <section class="hero" id="hero">
-    <div class="hero-bg">
-        <div class="hero-grid"></div>
-        <div class="hero-glow"></div>
-        <div class="hero-glow-2"></div>
-        <div class="particles" id="particles"></div>
-    </div>
     <div class="hero-content">
         <div class="hero-badge">
             <span class="pulse"></span>
-            <span data-en="Now in Early Access" data-dk="Nu i tidlig adgang">Now in Early Access</span>
+            <span data-dk="Tidlig adgang &mdash; vi tager nye kunder ind nu" data-en="Early Access &mdash; now taking new clients">Tidlig adgang &mdash; vi tager nye kunder ind nu</span>
         </div>
-        <h1 class="hero-title" data-en='Your Business Deserves<br>an <em>AI Workforce</em>' data-dk='Din virksomhed fortjener<br>en <em>AI Arbejdsstyrke</em>'>Your Business Deserves<br>an <em>AI Workforce</em></h1>
-        <p class="hero-subtitle" data-en="Operise deploys a team of intelligent AI workers directly on your local server. No cloud. No data leaks. Full GDPR compliance — by design." data-dk="Operise installerer et team af intelligente AI-medarbejdere direkte på din lokale server. Ingen cloud. Ingen datalæk. Fuld GDPR-overholdelse — by design.">Operise deploys a team of intelligent AI workers directly on your local server. No cloud. No data leaks. Full GDPR compliance — by design.</p>
+        <h1 class="hero-title" data-dk='Vi g&oslash;r AI til en<br><em>konkurrencefordel</em> for din virksomhed' data-en='We turn AI into a<br><em>competitive advantage</em> for your business'>Vi g&oslash;r AI til en<br><em>konkurrencefordel</em> for din virksomhed</h1>
+        <p class="hero-subtitle" data-dk="Operise hj&aelig;lper danske virksomheder med at implementere AI-automatisering der sparer tid, reducerer fejl og frig&oslash;r ressourcer &mdash; uden at du beh&oslash;ver v&aelig;re teknisk." data-en="Operise helps Danish businesses implement AI automation that saves time, reduces errors and frees up resources &mdash; no technical skills required.">Operise hj&aelig;lper danske virksomheder med at implementere AI-automatisering der sparer tid, reducerer fejl og frig&oslash;r ressourcer &mdash; uden at du beh&oslash;ver v&aelig;re teknisk.</p>
         <div class="hero-actions">
-            <a href="#demo" class="btn-primary">
-                <span data-en="Book a Demo" data-dk="Book en demo">Book a Demo</span>
+            <a href="#kontakt" class="btn-primary">
+                <span data-dk="Book en samtale" data-en="Book a call">Book en samtale</span>
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
             </a>
-            <a href="#workers" class="btn-secondary">
-                <span data-en="Explore AI Workers" data-dk="Udforsk AI Medarbejdere">Explore AI Workers</span>
+            <a href="#services" class="btn-secondary">
+                <span data-dk="Se hvad vi tilbyder" data-en="See what we offer">Se hvad vi tilbyder</span>
             </a>
         </div>
         <div class="hero-stats">
-            <div class="stat"><div class="stat-value">5</div><div class="stat-label" data-en="AI Workers" data-dk="AI Medarbejdere">AI Workers</div></div>
-            <div class="stat"><div class="stat-value">100%</div><div class="stat-label" data-en="Local &amp; Private" data-dk="Lokalt &amp; Privat">Local &amp; Private</div></div>
-            <div class="stat"><div class="stat-value">0</div><div class="stat-label" data-en="Cloud Dependencies" data-dk="Cloud-afhængigheder">Cloud Dependencies</div></div>
+            <div class="stat">
+                <div class="stat-value" data-dk="AI Automatisering" data-en="AI Automation">AI Automatisering</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" data-dk="Kurser &amp; Workshops" data-en="Courses &amp; Workshops">Kurser &amp; Workshops</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" data-dk="100% Dansk support" data-en="100% Danish support">100% Dansk support</div>
+            </div>
         </div>
     </div>
 </section>
+
+<hr class="section-divider">
 
 <!-- ==================== ABOUT ==================== -->
 
@@ -598,208 +552,226 @@
     <div class="section-container">
         <div class="about-grid">
             <div class="reveal">
-                <div class="section-label" data-en="What is Operise" data-dk="Hvad er Operise">What is Operise</div>
-                <h2 class="section-title" data-en='An AI Operating System<br>for <em>Modern Business</em>' data-dk='Et AI-operativsystem<br>til <em>moderne virksomheder</em>'>An AI Operating System<br>for <em>Modern Business</em></h2>
-                <p class="section-desc" data-en="Operise gives your company a team of specialized AI workers — each trained for a specific business function. They run entirely on your own server, keeping every byte of data under your control." data-dk="Operise giver din virksomhed et team af specialiserede AI-medarbejdere — hver trænet til en bestemt forretningsfunktion. De kører udelukkende på din egen server, så alle data forbliver under din kontrol.">Operise gives your company a team of specialized AI workers — each trained for a specific business function. They run entirely on your own server, keeping every byte of data under your control.</p>
+                <div class="section-label" data-dk="Om Operise" data-en="About Operise">Om Operise</div>
+                <h2 class="section-title" data-dk='To iv&aelig;rks&aelig;ttere med &eacute;n <em>mission</em>' data-en='Two entrepreneurs with one <em>mission</em>'>To iv&aelig;rks&aelig;ttere med &eacute;n <em>mission</em></h2>
+                <p class="section-desc" data-dk="Vi er Thomas og Conrad &mdash; et dansk team der br&aelig;nder for at g&oslash;re AI tilg&aelig;ngeligt for almindelige virksomheder. Vi er ikke et stort konsulentfirma. Vi er hands-on partnere der forst&aring;r hverdagens udfordringer og finder de steder hvor AI faktisk g&oslash;r en forskel." data-en="We&rsquo;re Thomas and Conrad &mdash; a Danish team passionate about making AI accessible to everyday businesses. We&rsquo;re not a big consultancy. We&rsquo;re hands-on partners who understand daily challenges and find where AI actually makes a difference.">Vi er Thomas og Conrad &mdash; et dansk team der br&aelig;nder for at g&oslash;re AI tilg&aelig;ngeligt for almindelige virksomheder. Vi er ikke et stort konsulentfirma. Vi er hands-on partnere der forst&aring;r hverdagens udfordringer og finder de steder hvor AI faktisk g&oslash;r en forskel.</p>
                 <div class="about-features">
                     <div class="about-feature">
-                        <div class="about-feature-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                        <div class="about-feature-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
                         <div>
-                            <h4 data-en="Runs on Your Server" data-dk="Kører på din server">Runs on Your Server</h4>
-                            <p data-en="All AI workers operate locally. Your data never leaves your infrastructure — ever." data-dk="Alle AI-medarbejdere kører lokalt. Dine data forlader aldrig din infrastruktur — nogensinde.">All AI workers operate locally. Your data never leaves your infrastructure — ever.</p>
+                            <h4 data-dk="Dansk team" data-en="Danish team">Dansk team</h4>
+                            <p data-dk="Vi sidder i Danmark og forst&aring;r det danske marked." data-en="Based in Denmark, understanding the local market.">Vi sidder i Danmark og forst&aring;r det danske marked.</p>
                         </div>
                     </div>
                     <div class="about-feature">
-                        <div class="about-feature-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <div class="about-feature-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
                         <div>
-                            <h4 data-en="GDPR by Design" data-dk="GDPR by design">GDPR by Design</h4>
-                            <p data-en="Built from the ground up for European data privacy regulations. No third-party processing." data-dk="Bygget fra bunden til europæiske databeskyttelsesregler. Ingen tredjepartsbehandling.">Built from the ground up for European data privacy regulations. No third-party processing.</p>
+                            <h4 data-dk="Hands-on tilgang" data-en="Hands-on approach">Hands-on tilgang</h4>
+                            <p data-dk="Vi implementerer sammen med dig, ikke bare r&aring;dgiver." data-en="We implement with you, not just advise.">Vi implementerer sammen med dig, ikke bare r&aring;dgiver.</p>
                         </div>
                     </div>
                     <div class="about-feature">
-                        <div class="about-feature-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+                        <div class="about-feature-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
                         <div>
-                            <h4 data-en="Modular Architecture" data-dk="Modulær arkitektur">Modular Architecture</h4>
-                            <p data-en="Add or remove AI workers as your business needs change. Each agent works independently." data-dk="Tilføj eller fjern AI-medarbejdere efterhånden som din virksomheds behov ændrer sig. Hver agent arbejder uafhængigt.">Add or remove AI workers as your business needs change. Each agent works independently.</p>
+                            <h4 data-dk="Ingen BS" data-en="No BS">Ingen BS</h4>
+                            <p data-dk="&AElig;rlig snak om hvad AI kan og ikke kan for netop din forretning." data-en="Honest talk about what AI can and can&rsquo;t do for your specific business.">&AElig;rlig snak om hvad AI kan og ikke kan for netop din forretning.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="about-visual reveal">
-                <div class="about-orb">
-                    <div class="orb-inner"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                <div class="about-logo-wrap">
+                    <img src="Logo.png" alt="Operise logo">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== AI WORKERS ==================== -->
+<hr class="section-divider">
 
-<section class="section" id="workers">
+<!-- ==================== SERVICES ==================== -->
+
+<section class="section" id="services">
     <div class="section-container">
-        <div class="workers-header reveal">
-            <div class="section-label" data-en="Your AI Team" data-dk="Dit AI-team">Your AI Team</div>
-            <h2 class="section-title" data-en='Meet Your <em>AI Workers</em>' data-dk='Mød dine <em>AI-medarbejdere</em>'>Meet Your <em>AI Workers</em></h2>
-            <p class="section-desc" data-en="Each worker is a specialized agent designed to handle a core business function autonomously, securely, and intelligently." data-dk="Hver medarbejder er en specialiseret agent designet til at håndtere en kernefunktion autonomt, sikkert og intelligent.">Each worker is a specialized agent designed to handle a core business function autonomously, securely, and intelligently.</p>
+        <div class="services-header reveal">
+            <div class="section-label" data-dk="Services" data-en="Services">Services</div>
+            <h2 class="section-title" data-dk='Hvad kan Operise g&oslash;re for <em>din virksomhed</em>?' data-en='What can Operise do for <em>your business</em>?'>Hvad kan Operise g&oslash;re for <em>din virksomhed</em>?</h2>
         </div>
-        <div class="workers-grid">
-            <div class="worker-card reveal">
-                <div class="worker-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-                <h3 data-en="Mail Assistant" data-dk="Mail-assistent">Mail Assistant</h3>
-                <p data-en="Reads, categorizes, drafts, and manages your email. Understands context, flags priorities, and suggests smart replies." data-dk="Læser, kategoriserer, udarbejder og administrerer din e-mail. Forstår kontekst, markerer prioriteter og foreslår smarte svar.">Reads, categorizes, drafts, and manages your email. Understands context, flags priorities, and suggests smart replies.</p>
-                <div class="worker-tags"><span class="worker-tag" data-en="Auto-sort" data-dk="Auto-sortering">Auto-sort</span><span class="worker-tag" data-en="Smart replies" data-dk="Smarte svar">Smart replies</span><span class="worker-tag" data-en="Priority inbox" data-dk="Prioriteret indbakke">Priority inbox</span></div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                <h3 data-dk="AI Automatisering" data-en="AI Automation">AI Automatisering</h3>
+                <p data-dk="Vi finder de opgaver i din virksomhed der &aelig;der tid, og automatiserer dem med AI &mdash; e-mail, rapportering, kundeservice, marketing og mere." data-en="We find the tasks eating up your time and automate them with AI &mdash; email, reporting, customer service, marketing and more.">Vi finder de opgaver i din virksomhed der &aelig;der tid, og automatiserer dem med AI &mdash; e-mail, rapportering, kundeservice, marketing og mere.</p>
+                <div class="service-tags"><span class="service-tag">E-mail</span><span class="service-tag">Marketing</span><span class="service-tag" data-dk="Kundeservice" data-en="Customer service">Kundeservice</span><span class="service-tag">Data</span></div>
             </div>
-            <div class="worker-card reveal">
-                <div class="worker-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <h3 data-en="Marketing Agent" data-dk="Marketing-agent">Marketing Agent</h3>
-                <p data-en="Generates content, manages campaigns, and creates social media posts aligned with your brand voice and strategy." data-dk="Genererer indhold, administrerer kampagner og opretter opslag på sociale medier tilpasset din virksomheds stemme og strategi.">Generates content, manages campaigns, and creates social media posts aligned with your brand voice and strategy.</p>
-                <div class="worker-tags"><span class="worker-tag" data-en="Content creation" data-dk="Indholdsproduktion">Content creation</span><span class="worker-tag" data-en="Social media" data-dk="Sociale medier">Social media</span><span class="worker-tag" data-en="Campaigns" data-dk="Kampagner">Campaigns</span></div>
+            <div class="service-card reveal">
+                <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                <h3 data-dk="AI Kurser &amp; Workshops" data-en="AI Courses &amp; Workshops">AI Kurser &amp; Workshops</h3>
+                <p data-dk="Fysiske kurser for dig og dit team. L&aelig;r at bruge AI-v&aelig;rkt&oslash;jer i praksis &mdash; ingen foruds&aelig;tninger, bare nysgerrighed." data-en="In-person courses for you and your team. Learn to use AI tools in practice &mdash; no prerequisites, just curiosity.">Fysiske kurser for dig og dit team. L&aelig;r at bruge AI-v&aelig;rkt&oslash;jer i praksis &mdash; ingen foruds&aelig;tninger, bare nysgerrighed.</p>
+                <div class="service-tags"><span class="service-tag" data-dk="Begyndervenlig" data-en="Beginner-friendly">Begyndervenlig</span><span class="service-tag" data-dk="Fysisk kursus" data-en="In-person">Fysisk kursus</span><span class="service-tag">Hands-on</span></div>
             </div>
-            <div class="worker-card reveal">
-                <div class="worker-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-                <h3 data-en="Annual Budget Planner" data-dk="Årlig budgetplanlægger">Annual Budget Planner</h3>
-                <p data-en="Builds financial forecasts, tracks spending patterns, and helps you plan budgets based on historical data and business goals." data-dk="Bygger finansielle prognoser, sporer forbrugsmønstre og hjælper dig med at planlægge budgetter baseret på historiske data og forretningsmål.">Builds financial forecasts, tracks spending patterns, and helps you plan budgets based on historical data and business goals.</p>
-                <div class="worker-tags"><span class="worker-tag" data-en="Forecasting" data-dk="Prognoser">Forecasting</span><span class="worker-tag" data-en="Spend tracking" data-dk="Forbrugssporing">Spend tracking</span><span class="worker-tag" data-en="Reports" data-dk="Rapporter">Reports</span></div>
-            </div>
-            <div class="worker-card reveal">
-                <div class="worker-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-                <h3 data-en="Customer Support Agent" data-dk="Kundesupport-agent">Customer Support Agent</h3>
-                <p data-en="Handles customer inquiries with human-like understanding. Routes complex issues, resolves common questions, and learns from every interaction." data-dk="Håndterer kundehenvendelser med menneskelig forståelse. Dirigerer komplekse sager, løser almindelige spørgsmål og lærer af hver interaktion.">Handles customer inquiries with human-like understanding. Routes complex issues, resolves common questions, and learns from every interaction.</p>
-                <div class="worker-tags"><span class="worker-tag" data-en="24/7 support" data-dk="24/7 support">24/7 support</span><span class="worker-tag" data-en="Ticket routing" data-dk="Sagshåndtering">Ticket routing</span><span class="worker-tag" data-en="Knowledge base" data-dk="Vidensbase">Knowledge base</span></div>
-            </div>
-            <div class="worker-card reveal">
-                <div class="worker-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-                <h3 data-en="Data Analytics Agent" data-dk="Dataanalyse-agent">Data Analytics Agent</h3>
-                <p data-en="Transforms raw business data into actionable insights. Generates dashboards, spots trends, and delivers automated reports — all without sending a single byte to external services." data-dk="Forvandler rå virksomhedsdata til handlingsrettede indsigter. Genererer dashboards, opdager tendenser og leverer automatiserede rapporter — alt uden at sende en eneste byte til eksterne tjenester.">Transforms raw business data into actionable insights. Generates dashboards, spots trends, and delivers automated reports — all without sending a single byte to external services.</p>
-                <div class="worker-tags"><span class="worker-tag" data-en="Dashboards" data-dk="Dashboards">Dashboards</span><span class="worker-tag" data-en="Trend analysis" data-dk="Trendanalyse">Trend analysis</span><span class="worker-tag" data-en="Auto-reports" data-dk="Auto-rapporter">Auto-reports</span><span class="worker-tag" data-en="Local processing" data-dk="Lokal behandling">Local processing</span></div>
+            <div class="service-card reveal">
+                <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+                <h3 data-dk="AI Strategi &amp; R&aring;dgivning" data-en="AI Strategy &amp; Consulting">AI Strategi &amp; R&aring;dgivning</h3>
+                <p data-dk="Ikke sikker p&aring; hvor du skal starte? Vi laver en AI-audit af din forretning og finder de lavth&aelig;ngende frugter." data-en="Not sure where to start? We run an AI audit of your business and find the low-hanging fruit.">Ikke sikker p&aring; hvor du skal starte? Vi laver en AI-audit af din forretning og finder de lavth&aelig;ngende frugter.</p>
+                <div class="service-tags"><span class="service-tag">AI Audit</span><span class="service-tag" data-dk="Handlingsplan" data-en="Action plan">Handlingsplan</span><span class="service-tag" data-dk="ROI-fokus" data-en="ROI-focused">ROI-fokus</span></div>
             </div>
         </div>
     </div>
 </section>
 
+<hr class="section-divider">
+
 <!-- ==================== HOW IT WORKS ==================== -->
 
-<section class="section" id="how">
+<section class="section" id="process">
     <div class="section-container">
         <div class="how-header reveal">
-            <div class="section-label" data-en="How It Works" data-dk="Sådan virker det">How It Works</div>
-            <h2 class="section-title" data-en='Up and Running in <em>Three Steps</em>' data-dk='Klar til brug på <em>tre trin</em>'>Up and Running in <em>Three Steps</em></h2>
-            <p class="section-desc" data-en="No complicated setup. No cloud configuration. Operise installs directly on your server and starts working immediately." data-dk="Ingen kompliceret opsætning. Ingen cloud-konfiguration. Operise installeres direkte på din server og begynder at arbejde med det samme.">No complicated setup. No cloud configuration. Operise installs directly on your server and starts working immediately.</p>
+            <div class="section-label" data-dk="Processen" data-en="The Process">Processen</div>
+            <h2 class="section-title" data-dk='Fra f&oslash;rste samtale til <em>resultat</em>' data-en='From first conversation to <em>results</em>'>Fra f&oslash;rste samtale til <em>resultat</em></h2>
         </div>
         <div class="how-steps">
             <div class="how-step reveal">
                 <div class="step-num">1</div>
-                <h3 data-en="Install" data-dk="Installér">Install</h3>
-                <p data-en="We deploy Operise on your local server. One command. Full isolation. No external dependencies." data-dk="Vi installerer Operise på din lokale server. Én kommando. Fuld isolation. Ingen eksterne afhængigheder.">We deploy Operise on your local server. One command. Full isolation. No external dependencies.</p>
+                <h3 data-dk="Gratis samtale" data-en="Free conversation">Gratis samtale</h3>
+                <p data-dk="Vi l&aelig;rer din forretning at kende og finder ud af hvor AI kan g&oslash;re den st&oslash;rste forskel." data-en="We get to know your business and find where AI can make the biggest difference.">Vi l&aelig;rer din forretning at kende og finder ud af hvor AI kan g&oslash;re den st&oslash;rste forskel.</p>
             </div>
             <div class="how-step reveal">
                 <div class="step-num">2</div>
-                <h3 data-en="Configure" data-dk="Konfigurér">Configure</h3>
-                <p data-en="Choose which AI workers your business needs. Connect your email, data sources, and internal tools." data-dk="Vælg hvilke AI-medarbejdere din virksomhed har brug for. Forbind din e-mail, datakilder og interne værktøjer.">Choose which AI workers your business needs. Connect your email, data sources, and internal tools.</p>
+                <h3 data-dk="Skr&aelig;ddersyet l&oslash;sning" data-en="Tailored solution">Skr&aelig;ddersyet l&oslash;sning</h3>
+                <p data-dk="Vi bygger en plan der passer til netop din virksomhed &mdash; ingen one-size-fits-all." data-en="We build a plan that fits your specific business &mdash; no one-size-fits-all.">Vi bygger en plan der passer til netop din virksomhed &mdash; ingen one-size-fits-all.</p>
             </div>
             <div class="how-step reveal">
                 <div class="step-num">3</div>
-                <h3 data-en="Deploy" data-dk="Igangsæt">Deploy</h3>
-                <p data-en="Your AI workers begin operating. Monitor performance through a clean dashboard. Scale as you grow." data-dk="Dine AI-medarbejdere begynder at arbejde. Overvåg performance via et overskueligt dashboard. Skalér efterhånden som du vokser.">Your AI workers begin operating. Monitor performance through a clean dashboard. Scale as you grow.</p>
+                <h3 data-dk="Implementering &amp; support" data-en="Implementation &amp; support">Implementering &amp; support</h3>
+                <p data-dk="Vi s&aelig;tter det op, tr&aelig;ner dig i det, og er der bagefter hvis du har brug for os." data-en="We set it up, train you on it, and stay available if you need us afterward.">Vi s&aelig;tter det op, tr&aelig;ner dig i det, og er der bagefter hvis du har brug for os.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== PRIVACY ==================== -->
+<hr class="section-divider">
 
-<section class="section" id="privacy">
+<!-- ==================== COURSES ==================== -->
+
+<section class="section" id="courses">
     <div class="section-container">
-        <div class="privacy-layout">
+        <div class="courses-layout">
             <div class="reveal">
-                <div class="section-label" data-en="Privacy First" data-dk="Privatliv først">Privacy First</div>
-                <h2 class="section-title" data-en='Your Data Never<br><em>Leaves Your Server</em>' data-dk='Dine data forlader<br>aldrig <em>din server</em>'>Your Data Never<br><em>Leaves Your Server</em></h2>
-                <p class="section-desc" data-en="In a world of cloud AI, Operise takes a fundamentally different approach. Every AI model, every process, every byte of data stays within your own infrastructure." data-dk="I en verden af cloud-AI tager Operise en fundamentalt anderledes tilgang. Hver AI-model, hver proces, hver byte data forbliver inden for din egen infrastruktur.">In a world of cloud AI, Operise takes a fundamentally different approach. Every AI model, every process, every byte of data stays within your own infrastructure.</p>
-                <div class="privacy-points">
-                    <div class="privacy-point">
-                        <div class="privacy-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
-                        <div><h4 data-en="100% Local Processing" data-dk="100% lokal databehandling">100% Local Processing</h4><p data-en="AI models run directly on your hardware. Zero data transmitted to external servers." data-dk="AI-modeller kører direkte på din hardware. Ingen data sendt til eksterne servere.">AI models run directly on your hardware. Zero data transmitted to external servers.</p></div>
+                <div class="section-label" data-dk="AI Kurser" data-en="AI Courses">AI Kurser</div>
+                <h2 class="section-title" data-dk='L&aelig;r AI &mdash; <em>uden foruds&aelig;tninger</em>' data-en='Learn AI &mdash; <em>no prerequisites</em>'>L&aelig;r AI &mdash; <em>uden foruds&aelig;tninger</em></h2>
+                <p class="section-desc" data-dk="Vi afholder fysiske workshops og kurser for virksomheder og enkeltpersoner der vil forst&aring; og bruge AI i praksis. Du beh&oslash;ver ikke v&aelig;re teknisk &mdash; bare nysgerrig." data-en="We run in-person workshops and courses for businesses and individuals who want to understand and use AI in practice. You don&rsquo;t need to be technical &mdash; just curious.">Vi afholder fysiske workshops og kurser for virksomheder og enkeltpersoner der vil forst&aring; og bruge AI i praksis. Du beh&oslash;ver ikke v&aelig;re teknisk &mdash; bare nysgerrig.</p>
+                <div class="courses-points">
+                    <div class="courses-point">
+                        <div class="courses-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
+                        <div>
+                            <h4 data-dk="For alle niveauer" data-en="All levels">For alle niveauer</h4>
+                            <p data-dk="Fra nybegynder til videregående." data-en="From beginner to advanced.">Fra nybegynder til videregående.</p>
+                        </div>
                     </div>
-                    <div class="privacy-point">
-                        <div class="privacy-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
-                        <div><h4 data-en="Full GDPR Compliance" data-dk="Fuld GDPR-overholdelse">Full GDPR Compliance</h4><p data-en="Designed for the strictest European data protection standards. No third-party processing agreements needed." data-dk="Designet til de strengeste europæiske databeskyttelsesstandarder. Ingen databehandleraftaler med tredjepart nødvendige.">Designed for the strictest European data protection standards. No third-party processing agreements needed.</p></div>
+                    <div class="courses-point">
+                        <div class="courses-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
+                        <div>
+                            <h4 data-dk="Fysisk undervisning" data-en="In-person teaching">Fysisk undervisning</h4>
+                            <p data-dk="Hands-on i Danmark." data-en="Hands-on in Denmark.">Hands-on i Danmark.</p>
+                        </div>
                     </div>
-                    <div class="privacy-point">
-                        <div class="privacy-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
-                        <div><h4 data-en="No Vendor Lock-in" data-dk="Ingen leverandørlåsning">No Vendor Lock-in</h4><p data-en="You own everything. The server, the data, the models. Switch or expand anytime." data-dk="Du ejer alt. Serveren, dataene, modellerne. Skift eller udvid når som helst.">You own everything. The server, the data, the models. Switch or expand anytime.</p></div>
+                    <div class="courses-point">
+                        <div class="courses-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
+                        <div>
+                            <h4 data-dk="Direkte anvendeligt" data-en="Immediately useful">Direkte anvendeligt</h4>
+                            <p data-dk="Du g&aring;r hjem med v&aelig;rkt&oslash;jer du kan bruge med det samme." data-en="Walk away with tools you can use right away.">Du g&aring;r hjem med v&aelig;rkt&oslash;jer du kan bruge med det samme.</p>
+                        </div>
                     </div>
-                    <div class="privacy-point">
-                        <div class="privacy-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
-                        <div><h4 data-en="Enterprise-Grade Security" data-dk="Enterprise-sikkerhed">Enterprise-Grade Security</h4><p data-en="Encrypted at rest and in transit. Role-based access. Full audit logging for compliance." data-dk="Krypteret i hvile og under transport. Rollebaseret adgang. Fuld revisionslogning til compliance.">Encrypted at rest and in transit. Role-based access. Full audit logging for compliance.</p></div>
+                    <div class="courses-point">
+                        <div class="courses-check"><svg viewBox="0 0 16 16" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></div>
+                        <div>
+                            <h4 data-dk="Hold &amp; virksomheder" data-en="Teams &amp; businesses">Hold &amp; virksomheder</h4>
+                            <p data-dk="Vi tilbyder kurser til hele teams." data-en="We offer courses for entire teams.">Vi tilbyder kurser til hele teams.</p>
+                        </div>
                     </div>
                 </div>
+                <a href="#kontakt" class="btn-courses">
+                    <span data-dk="Kontakt os om kurser" data-en="Contact us about courses">Kontakt os om kurser</span>
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </a>
             </div>
-            <div class="privacy-visual reveal">
-                <div class="shield">
-                    <div class="shield-glow"></div>
-                    <div class="shield-ring"></div>
-                    <div class="shield-ring-2"></div>
-                    <div class="shield-shape"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+            <div class="courses-visual reveal">
+                <div class="courses-icon-wrap">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== BOOK A DEMO ==================== -->
+<hr class="section-divider">
 
-<section class="section" id="demo">
+<!-- ==================== CONTACT ==================== -->
+
+<section class="section" id="kontakt">
     <div class="section-container">
-        <div class="demo-layout">
+        <div class="contact-layout">
             <div class="reveal">
-                <div class="section-label" data-en="Get Started" data-dk="Kom i gang">Get Started</div>
-                <h2 class="section-title" data-en='See Operise <em>in Action</em>' data-dk='Se Operise <em>i aktion</em>'>See Operise <em>in Action</em></h2>
-                <p class="section-desc" data-en="Book a personalized demo and discover how AI workers can transform your operations — while keeping your data 100% private." data-dk="Book en personlig demo og opdag, hvordan AI-medarbejdere kan transformere din drift — mens dine data forbliver 100% private.">Book a personalized demo and discover how AI workers can transform your operations — while keeping your data 100% private.</p>
-                <div class="demo-info">
-                    <h3 data-en="What to expect" data-dk="Hvad du kan forvente">What to expect</h3>
-                    <div class="demo-perks">
-                        <div class="demo-perk"><div class="perk-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span data-en="30-minute personalized walkthrough" data-dk="30-minutters personlig gennemgang">30-minute personalized walkthrough</span></div>
-                        <div class="demo-perk"><div class="perk-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><span data-en="Live demo of AI workers on a local server" data-dk="Live demo af AI-medarbejdere på en lokal server">Live demo of AI workers on a local server</span></div>
-                        <div class="demo-perk"><div class="perk-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span data-en="Custom deployment plan for your company" data-dk="Skræddersyet installationsplan til din virksomhed">Custom deployment plan for your company</span></div>
-                        <div class="demo-perk"><div class="perk-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span data-en="No commitments — just clarity" data-dk="Ingen forpligtelser — kun klarhed">No commitments — just clarity</span></div>
+                <div class="section-label" data-dk="Kom i gang" data-en="Get started">Kom i gang</div>
+                <h2 class="section-title" data-dk='Klar til at se hvad AI kan g&oslash;re for <em>dig</em>?' data-en='Ready to see what AI can do for <em>you</em>?'>Klar til at se hvad AI kan g&oslash;re for <em>dig</em>?</h2>
+                <p class="section-desc" data-dk="Book en uforpligtende samtale. Vi h&oslash;rer om din virksomhed og giver dig et &aelig;rligt bud p&aring; hvad der giver mening." data-en="Book a no-obligation conversation. We&rsquo;ll learn about your business and give you an honest assessment of what makes sense.">Book en uforpligtende samtale. Vi h&oslash;rer om din virksomhed og giver dig et &aelig;rligt bud p&aring; hvad der giver mening.</p>
+                <div class="contact-info">
+                    <h3 data-dk="Hvad du kan forvente" data-en="What to expect">Hvad du kan forvente</h3>
+                    <div class="contact-perks">
+                        <div class="contact-perk">
+                            <div class="perk-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                            <span data-dk="15-minutters uforpligtende samtale" data-en="15-minute no-obligation conversation">15-minutters uforpligtende samtale</span>
+                        </div>
+                        <div class="contact-perk">
+                            <div class="perk-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                            <span data-dk="Vi finder ud af om AI giver mening for dig" data-en="We figure out if AI makes sense for you">Vi finder ud af om AI giver mening for dig</span>
+                        </div>
+                        <div class="contact-perk">
+                            <div class="perk-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                            <span data-dk="Ingen forpligtelser &mdash; bare klarhed" data-en="No commitments &mdash; just clarity">Ingen forpligtelser &mdash; bare klarhed</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="reveal">
-                <div class="demo-form-wrap">
-                    <form id="demoForm" onsubmit="handleSubmit(event)">
-                        <!-- Formspree config: reply-to lets you respond directly to leads -->
+                <div class="contact-form-wrap">
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
                         <input type="hidden" name="_replyto" id="replyTo">
-                        <input type="hidden" name="_subject" value="New Operise Demo Request">
-                        <!-- Honeypot: invisible to humans, catches spam bots -->
+                        <input type="hidden" name="_subject" value="Ny henvendelse fra operise.dk">
                         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                         <div class="form-row">
-                            <div class="form-group"><label data-en="First Name" data-dk="Fornavn">First Name</label><input type="text" name="firstName" required placeholder="John" data-ph-en="John" data-ph-dk="Anders"></div>
-                            <div class="form-group"><label data-en="Last Name" data-dk="Efternavn">Last Name</label><input type="text" name="lastName" required placeholder="Smith" data-ph-en="Smith" data-ph-dk="Jensen"></div>
+                            <div class="form-group">
+                                <label for="firstName" data-dk="Fornavn" data-en="First name">Fornavn</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Anders" data-ph-dk="Anders" data-ph-en="John">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" data-dk="Efternavn" data-en="Last name">Efternavn</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Jensen" data-ph-dk="Jensen" data-ph-en="Smith">
+                            </div>
                         </div>
-                        <div class="form-group"><label data-en="Work Email" data-dk="Arbejdsmail">Work Email</label><input type="email" name="email" required placeholder="john@company.com" data-ph-en="john@company.com" data-ph-dk="anders@virksomhed.dk"></div>
-                        <div class="form-group"><label data-en="Company Name" data-dk="Virksomhedsnavn">Company Name</label><input type="text" name="company" required placeholder="Acme Inc." data-ph-en="Acme Inc." data-ph-dk="Virksomhed A/S"></div>
-                        <div class="form-group"><label data-en="Company Size" data-dk="Virksomhedsstørrelse">Company Size</label>
-                            <select name="companySize" required>
-                                <option value="" disabled selected data-en="Select company size" data-dk="Vælg virksomhedsstørrelse">Select company size</option>
-                                <option value="1-10" data-en="1–10 employees" data-dk="1–10 medarbejdere">1–10 employees</option>
-                                <option value="11-50" data-en="11–50 employees" data-dk="11–50 medarbejdere">11–50 employees</option>
-                                <option value="51-200" data-en="51–200 employees" data-dk="51–200 medarbejdere">51–200 employees</option>
-                                <option value="201-1000" data-en="201–1,000 employees" data-dk="201–1.000 medarbejdere">201–1,000 employees</option>
-                                <option value="1000+" data-en="1,000+ employees" data-dk="1.000+ medarbejdere">1,000+ employees</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="email" data-dk="E-mail" data-en="Email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="anders@virksomhed.dk" data-ph-dk="anders@virksomhed.dk" data-ph-en="john@company.com">
                         </div>
-                        <div class="form-group"><label data-en="What interests you most?" data-dk="Hvad interesserer dig mest?">What interests you most?</label><textarea name="message" placeholder="Tell us about your business needs..." data-ph-en="Tell us about your business needs..." data-ph-dk="Fortæl os om dine forretningsbehov..."></textarea></div>
+                        <div class="form-group">
+                            <label for="company" data-dk="Virksomhed (valgfrit)" data-en="Company (optional)">Virksomhed (valgfrit)</label>
+                            <input type="text" id="company" name="company" placeholder="Virksomhed A/S" data-ph-dk="Virksomhed A/S" data-ph-en="Company Inc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-dk="Besked (valgfrit)" data-en="Message (optional)">Besked (valgfrit)</label>
+                            <textarea id="message" name="message" placeholder="Fortæl os lidt om hvad du leder efter..." data-ph-dk="Fortæl os lidt om hvad du leder efter..." data-ph-en="Tell us a bit about what you're looking for..."></textarea>
+                        </div>
                         <button type="submit" class="btn-submit">
-                            <span data-en="Request Your Demo" data-dk="Anmod om din demo">Request Your Demo</span>
+                            <span data-dk="Send besked" data-en="Send message">Send besked</span>
                             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
                         </button>
                     </form>
                     <div class="form-success" id="formSuccess">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        <h3 data-en="Thank you!" data-dk="Tak!">Thank you!</h3>
-                        <p data-en="We'll be in touch within 24 hours to schedule your personalized demo." data-dk="Vi kontakter dig inden for 24 timer for at planlægge din personlige demo.">We'll be in touch within 24 hours to schedule your personalized demo.</p>
+                        <h3 data-dk="Tak!" data-en="Thank you!">Tak!</h3>
+                        <p data-dk="Vi vender tilbage inden for 24 timer." data-en="We&rsquo;ll get back to you within 24 hours.">Vi vender tilbage inden for 24 timer.</p>
                     </div>
                 </div>
             </div>
@@ -812,16 +784,16 @@
 <footer class="footer">
     <div class="footer-inner">
         <div class="footer-logo"><img src="Logo.png" alt="Operise"></div>
-        <div class="footer-copy" data-en="&copy; 2026 Operise ApS. All rights reserved." data-dk="&copy; 2026 Operise ApS. Alle rettigheder forbeholdes.">&copy; 2026 Operise ApS. All rights reserved.</div>
+        <div class="footer-copy" data-dk="&copy; 2026 Operise ApS. Alle rettigheder forbeholdes." data-en="&copy; 2026 Operise ApS. All rights reserved.">&copy; 2026 Operise ApS. Alle rettigheder forbeholdes.</div>
         <div class="footer-links">
-            <a href="#privacy" data-en="Privacy" data-dk="Privatliv">Privacy</a>
-            <a href="mailto:hello@operise.dk" data-en="Contact" data-dk="Kontakt">Contact</a>
+            <a href="mailto:hello@operise.dk" data-dk="Kontakt" data-en="Contact">Kontakt</a>
         </div>
     </div>
 </footer>
 
 <script>
-let currentLang = 'en';
+let currentLang = 'dk';
+
 function setLang(lang) {
     currentLang = lang;
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
@@ -832,9 +804,6 @@ function setLang(lang) {
     });
     document.querySelectorAll('[data-ph-' + lang + ']').forEach(el => {
         el.placeholder = el.getAttribute('data-ph-' + lang);
-    });
-    document.querySelectorAll('select option[data-' + lang + ']').forEach(o => {
-        o.textContent = o.getAttribute('data-' + lang);
     });
 }
 
@@ -854,20 +823,6 @@ const revealObs = new IntersectionObserver(entries => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-(function createParticles() {
-    const c = document.getElementById('particles'); if (!c) return;
-    for (let i = 0; i < 20; i++) {
-        const p = document.createElement('div'); p.className = 'particle';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = (8 + Math.random() * 12) + 's';
-        p.style.animationDelay = (Math.random() * 10) + 's';
-        const s = (1.5 + Math.random() * 1.5) + 'px';
-        p.style.width = s; p.style.height = s;
-        p.style.opacity = 0.15 + Math.random() * 0.25;
-        c.appendChild(p);
-    }
-})();
-
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
         const t = document.querySelector(this.getAttribute('href'));
@@ -875,21 +830,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// ⚡ FORMSPREE: Replace YOUR_FORM_ID below with your actual Formspree form ID
-// Get it from: https://formspree.io → New Form → copy the ID after /f/
 const FORMSPREE_ID = 'mbdzwgle';
 
 async function handleSubmit(e) {
     e.preventDefault();
-    const form = document.getElementById('demoForm');
+    const form = document.getElementById('contactForm');
     const btn = form.querySelector('.btn-submit');
     const btnText = btn.querySelector('span');
     const originalText = btnText.textContent;
 
-    // Sync reply-to so you can reply directly to leads from your inbox
     document.getElementById('replyTo').value = form.querySelector('[name="email"]').value;
 
-    // Show loading state
     btn.disabled = true;
     btnText.textContent = currentLang === 'dk' ? 'Sender...' : 'Sending...';
 
@@ -907,22 +858,20 @@ async function handleSubmit(e) {
             throw new Error('Form submission failed');
         }
     } catch (error) {
-        console.error('Submission error:', error);
         btn.disabled = false;
         btnText.textContent = originalText;
         alert(currentLang === 'dk'
-            ? 'Noget gik galt. Prøv igen eller send en email til ch@operise.dk'
-            : 'Something went wrong. Please try again or email ch@operise.dk');
+            ? 'Noget gik galt. Prøv igen eller send en email til hello@operise.dk'
+            : 'Something went wrong. Please try again or email hello@operise.dk');
     }
 }
 
-// Staggered reveals for cards and steps
 const cardObs = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
         if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100);
     });
 }, { threshold: 0.1 });
-document.querySelectorAll('.worker-card.reveal').forEach(c => cardObs.observe(c));
+document.querySelectorAll('.service-card.reveal').forEach(c => cardObs.observe(c));
 
 const stepObs = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
